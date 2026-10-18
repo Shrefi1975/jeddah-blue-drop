@@ -1,2 +1,4 @@
 - [x] Build Jeddah Town landing page
 - [x] Mobile polish: easier nav menu, clear order buttons
+- [x] Align external hosting output with Netlify's publish directory and select its supported adapter
+- [ ] Verify the external Netlify deployment — waiting for the user to retry in their hosting account
