@@ -52,6 +52,8 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   --color-sidebar: var(--sidebar);
+  --color-whatsapp: var(--whatsapp);
+  --font-sans: "Tajawal", system-ui, sans-serif;
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
@@ -95,6 +97,19 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --whatsapp: oklch(0.68 0.17 150);
+}
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.25 0.06 250);
+  --primary: oklch(0.36 0.12 252);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.97 0.015 220);
+  --secondary-foreground: oklch(0.36 0.12 252);
+  --muted-foreground: oklch(0.5 0.04 240);
+  --accent: oklch(0.75 0.13 210);
+  --accent-foreground: oklch(0.25 0.06 250);
+  --border: oklch(0.92 0.02 220);
 }
 
 .dark {
@@ -142,3 +157,8 @@
     color: var(--color-foreground);
   }
 }
+
+@utility glass { background: color-mix(in oklab, var(--background) 70%, transparent); backdrop-filter: blur(16px); border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent); box-shadow: 0 10px 30px -15px color-mix(in oklab, var(--primary) 30%, transparent); }
+@utility glass-dark { background: color-mix(in oklab, var(--background) 12%, transparent); backdrop-filter: blur(12px); border: 1px solid color-mix(in oklab, var(--background) 25%, transparent); }
+@utility glow { box-shadow: 0 0 24px color-mix(in oklab, var(--whatsapp) 60%, transparent); }
+html { scroll-behavior: smooth; }

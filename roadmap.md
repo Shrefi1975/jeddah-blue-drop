@@ -1,0 +1,2 @@
+- [x] Build Jeddah Town landing page
+- [x] Mobile polish: easier nav menu, clear order buttons
