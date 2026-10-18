@@ -44,7 +44,7 @@ const NAV = [["#how", "كيف نعمل"], ["#products", "منتجاتنا"], ["#
 function Index() {
   const [open, setOpen] = useState(false);
   return (
-    <div dir="rtl" className="min-h-screen bg-background font-sans text-foreground">
+    <div dir="rtl" className="min-h-screen bg-background pb-20 font-sans sm:pb-0 text-foreground">
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
           <a href="#" className="flex shrink-0 items-center gap-2 text-xl font-extrabold text-primary">
@@ -58,31 +58,33 @@ function Index() {
             <a href={GENERAL} target="_blank" rel="noreferrer" className="glow hidden items-center gap-2 rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-primary-foreground sm:inline-flex">
               <MessageCircle className="h-4 w-4" /> اطلب عبر الواتساب
             </a>
-            <button aria-label="القائمة" onClick={() => setOpen(!open)} className="rounded-lg p-2 md:hidden">{open ? <X /> : <Menu />}</button>
+            <a href={GENERAL} target="_blank" rel="noreferrer" aria-label="اطلب عبر الواتساب" className="grid h-10 w-10 place-items-center rounded-full bg-whatsapp text-primary-foreground sm:hidden"><MessageCircle className="h-5 w-5" /></a>
+            <button aria-label="القائمة" aria-expanded={open} onClick={() => setOpen(!open)} className="grid h-11 w-11 place-items-center rounded-xl bg-secondary text-primary md:hidden">{open ? <X /> : <Menu />}</button>
           </div>
         </div>
         {open && (
-          <nav className="flex flex-col gap-1 border-t border-border px-4 py-3 md:hidden">
-            {NAV.map(([h, l]) => <a key={h} href={h} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2 font-semibold hover:bg-secondary">{l}</a>)}
-            <a href={GENERAL} target="_blank" rel="noreferrer" className="mt-2 rounded-full bg-whatsapp px-4 py-2 text-center font-bold text-primary-foreground">اطلب عبر الواتساب</a>
+          <nav className="flex h-[calc(100dvh-4rem)] flex-col gap-2 overflow-y-auto border-t border-border bg-background px-4 py-5 animate-in fade-in slide-in-from-top-2 md:hidden">
+            {NAV.map(([h, l]) => <a key={h} href={h} onClick={() => setOpen(false)} className="rounded-2xl bg-secondary px-5 py-4 text-lg font-bold text-primary active:scale-[0.98]">{l}</a>)}
+            <a href={GENERAL} target="_blank" rel="noreferrer" className="mt-auto flex items-center justify-center gap-2 rounded-2xl bg-whatsapp px-4 py-4 text-lg font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> اطلب عبر الواتساب</a>
+            <a href="tel:0560757063" className="flex items-center justify-center gap-2 rounded-2xl border border-border py-4 font-bold text-primary"><Phone className="h-5 w-5" /> اتصل بنا</a>
           </nav>
         )}
       </header>
 
       {/* Hero */}
-      <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden bg-gradient-to-br from-primary to-accent">
+      <section className="relative isolate flex min-h-[80svh] items-center sm:min-h-[88vh] overflow-hidden bg-gradient-to-br from-primary to-accent">
         <video className="absolute inset-0 -z-20 h-full w-full object-cover" src={VIDEO} width={1280} height={720} preload="metadata" muted loop playsInline autoPlay />
         <div className="absolute inset-0 -z-10 bg-primary/40" />
-        <div className="mx-auto w-full max-w-7xl px-4 py-20 text-primary-foreground">
+        <div className="mx-auto w-full max-w-7xl px-4 py-14 text-primary-foreground sm:py-20">
           <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-6 duration-700">
             <span className="glass-dark mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm"><Droplets className="h-4 w-4" /> توصيل مياه الشرب في جدة</span>
-            <h1 className="text-4xl font-extrabold leading-tight sm:text-6xl">نقاء يصلك حتى بابك في جدة</h1>
-            <p className="mt-5 text-lg opacity-90 sm:text-xl">توصيل سريع ومباشر لأشهر ماركات مياه الشرب المعبأة. للمنازل، المكاتب، المطاعم، والفعاليات.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={GENERAL} target="_blank" rel="noreferrer" className="glow inline-flex items-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 font-bold transition hover:scale-105"><MessageCircle className="h-5 w-5" /> اطلب الآن عبر الواتساب</a>
-              <a href="#products" className="glass-dark rounded-full px-7 py-3.5 font-bold transition hover:bg-background/20">تصفح المنتجات</a>
+            <h1 className="text-[2.1rem] font-extrabold leading-tight sm:text-6xl">نقاء يصلك حتى بابك في جدة</h1>
+            <p className="mt-4 text-base opacity-90 sm:mt-5 sm:text-xl">توصيل سريع ومباشر لأشهر ماركات مياه الشرب المعبأة. للمنازل، المكاتب، المطاعم، والفعاليات.</p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href={GENERAL} target="_blank" rel="noreferrer" className="glow inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-4 font-bold transition hover:scale-105"><MessageCircle className="h-5 w-5" /> اطلب الآن عبر الواتساب</a>
+              <a href="#products" className="glass-dark rounded-full px-7 py-4 text-center font-bold transition hover:bg-background/20">تصفح المنتجات</a>
             </div>
-            <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-2 sm:mt-10 sm:grid-cols-3 sm:gap-3">
               {[[Truck, "توصيل خلال ساعتين"], [Banknote, "دفع عند الاستلام"], [ShieldCheck, "معتمد من هيئة الغذاء والدواء"]].map(([I, t]: any) => (
                 <div key={t} className="glass-dark flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold"><I className="h-5 w-5 shrink-0 text-accent" />{t}</div>
               ))}
@@ -92,7 +94,7 @@ function Index() {
       </section>
 
       {/* How */}
-      <section id="how" className="mx-auto max-w-7xl px-4 py-20">
+      <section id="how" className="mx-auto max-w-7xl px-4 py-14 sm:py-20">
         <Title t="كيف نعمل؟" s="ثلاث خطوات بسيطة تفصلك عن مياه نقية" />
         <div className="grid gap-6 md:grid-cols-3">
           {[[Droplets, "اختر منتجاتك وأحجامها المفضلة."], [Send, "أرسل طلبك عبر الواتساب بضغطة زر."], [Snowflake, "نوصلك الطلب بارداً وفي أسرع وقت."]].map(([I, t]: any, i) => (
@@ -119,7 +121,7 @@ function Index() {
       </section>
 
       {/* Clients */}
-      <section id="clients" className="mx-auto max-w-7xl px-4 py-20">
+      <section id="clients" className="mx-auto max-w-7xl px-4 py-14 sm:py-20">
         <Title t="الشركاء الذين يثقون بـ جدة تاون" s="نفتخر بتوريد المياه لأفضل الجهات في مدينة جدة" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -180,7 +182,11 @@ function Index() {
         <div className="border-t border-background/10 py-5 text-center text-sm opacity-70">جدة تاون © 2026</div>
       </footer>
 
-      <a href={GENERAL} target="_blank" rel="noreferrer" aria-label="اطلب عبر الواتساب" className="glow fixed bottom-5 left-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-primary-foreground transition hover:scale-110">
+      <div className="fixed inset-x-0 bottom-0 z-50 flex gap-2 border-t border-border bg-background/95 p-3 backdrop-blur-xl sm:hidden">
+        <a href={GENERAL} target="_blank" rel="noreferrer" className="glow flex flex-1 items-center justify-center gap-2 rounded-2xl bg-whatsapp py-3.5 font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> اطلب عبر الواتساب</a>
+        <a href="tel:0560757063" aria-label="اتصل بنا" className="grid w-14 place-items-center rounded-2xl bg-secondary text-primary"><Phone className="h-5 w-5" /></a>
+      </div>
+      <a href={GENERAL} target="_blank" rel="noreferrer" aria-label="اطلب عبر الواتساب" className="glow fixed bottom-5 left-5 z-50 hidden sm:grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-primary-foreground transition hover:scale-110">
         <MessageCircle className="h-7 w-7" />
       </a>
     </div>
@@ -189,8 +195,8 @@ function Index() {
 
 function Title({ t, s }: { t: string; s: string }) {
   return (
-    <div className="mb-12 text-center">
-      <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">{t}</h2>
+    <div className="mb-8 text-center sm:mb-12">
+      <h2 className="text-2xl font-extrabold text-primary sm:text-4xl">{t}</h2>
       <p className="mt-3 text-muted-foreground">{s}</p>
     </div>
   );
@@ -203,10 +209,10 @@ function Products() {
     [brand],
   );
   return (
-    <section id="products" className="bg-secondary/50 py-20">
+    <section id="products" className="bg-secondary/50 py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4">
         <Title t="منتجاتنا" s="اختر علامتك المفضلة وحدد الكمية" />
-        <div className="mb-10 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center">
+        <div className="sticky top-16 z-30 -mx-4 mb-8 flex gap-2 overflow-x-auto bg-secondary/90 px-4 py-3 backdrop-blur sm:static sm:mx-0 sm:bg-transparent sm:backdrop-blur-none sm:flex-wrap sm:justify-center">
           {["الكل", ...BRANDS.map((b) => b.name)].map((n) => (
             <button key={n} onClick={() => setBrand(n)} className={`shrink-0 rounded-full px-5 py-2 text-sm font-bold transition ${brand === n ? "bg-primary text-primary-foreground shadow-lg" : "bg-background text-primary hover:bg-accent/20"}`}>{n}</button>
           ))}
@@ -235,9 +241,9 @@ function Card({ p }: { p: P & { brand: string } }) {
       </div>
       <p className="mt-4 text-2xl font-black text-primary">{fmt(p.price)}</p>
       <div className="mt-4 flex items-center justify-between rounded-2xl bg-secondary p-1.5">
-        <button aria-label="زيادة" onClick={() => setQ(q + 1)} className="grid h-9 w-9 place-items-center rounded-xl bg-background text-primary"><Plus className="h-4 w-4" /></button>
+        <button aria-label="زيادة" onClick={() => setQ(q + 1)} className="grid h-11 w-11 place-items-center rounded-xl bg-background text-primary"><Plus className="h-4 w-4" /></button>
         <span className="font-bold">{q}</span>
-        <button aria-label="إنقاص" onClick={() => setQ(Math.max(1, q - 1))} className="grid h-9 w-9 place-items-center rounded-xl bg-background text-primary"><Minus className="h-4 w-4" /></button>
+        <button aria-label="إنقاص" onClick={() => setQ(Math.max(1, q - 1))} className="grid h-11 w-11 place-items-center rounded-xl bg-background text-primary"><Minus className="h-4 w-4" /></button>
       </div>
       <p className="mt-3 text-sm text-muted-foreground">الإجمالي: <b className="text-primary">{fmt(total)}</b></p>
       <a href={wa(msg)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-primary py-3 font-bold text-primary-foreground transition hover:opacity-90"><MessageCircle className="h-4 w-4" /> أضف للطلب</a>
