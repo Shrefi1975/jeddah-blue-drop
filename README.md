@@ -27,3 +27,18 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Deploy to Netlify
+
+The repository includes `netlify.toml`. It selects the Netlify server adapter,
+uses `bun run build`, and publishes `dist/client`. Vite explicitly writes public
+output to the same directory. The public home page is prerendered to HTML;
+product filters, quantities, and WhatsApp links remain interactive.
+
+Commit/sync these changes to the repository connected to Netlify, then retry
+the deploy. Use the repository root as the base directory. If Netlify still
+reports a missing directory, check that the deploy uses the latest commit and
+that it has loaded this repository's `netlify.toml`.
+
+These settings do not change Lovable's managed hosting output. Deployment on
+the external Netlify account must be verified there after the retry.
