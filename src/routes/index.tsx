@@ -182,7 +182,7 @@ function Index() {
         <div className="border-t border-background/10 py-5 text-center text-sm opacity-70">جدة تاون © 2026</div>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 flex gap-2 border-t border-border bg-background/95 p-3 backdrop-blur-xl sm:hidden">
+      <div className={`fixed inset-x-0 bottom-0 z-50 gap-2 ${open ? "hidden" : "flex"} border-t border-border bg-background/95 p-3 backdrop-blur-xl sm:hidden`}>
         <a href={GENERAL} target="_blank" rel="noreferrer" className="glow flex flex-1 items-center justify-center gap-2 rounded-2xl bg-whatsapp py-3.5 font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> اطلب عبر الواتساب</a>
         <a href="tel:0560757063" aria-label="اتصل بنا" className="grid w-14 place-items-center rounded-2xl bg-secondary text-primary"><Phone className="h-5 w-5" /></a>
       </div>
