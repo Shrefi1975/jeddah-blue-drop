@@ -1,4 +1,4 @@
-export type Product = { brand: string; size: string; pack: string; price: number; img?: string };
+export type Product = { brand: string; size: string; pack: string; price: number; img?: string | undefined };
 export type CartLine = { product: Product; qty: number };
 
 export const PHONE = "966560757063";
