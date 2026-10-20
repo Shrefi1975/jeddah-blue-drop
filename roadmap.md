@@ -2,9 +2,10 @@
 - [x] Mobile polish: easier nav menu, clear order buttons
 - [x] Align external hosting output with Netlify's publish directory and select its supported adapter
 - [ ] Verify the external Netlify deployment — waiting for the user to retry in their hosting account
-- [ ] Hero: replace video with a water-delivery clip
-- [ ] Redesign colors and effects for the water-delivery brand
-- [ ] Real product photos per brand and size
-- [ ] Modern "How it works" section with expressive image
-- [ ] Expressive background for the B2B offer section
-- [ ] Rework sections and copy for TikTok / social ad conversion
+- [x] New ocean-blue palette, heading font and motion effects (styles only)
+- [ ] Hero: water-delivery visual — AI video blocked by credits; animated photo ready but not placed on the page
+- [ ] Real product photos per brand and size — found for Mirad, Safa, Nova, Akoya, Rafa, Al Ain, Al Bayan; Tuwaiq and Asayel still missing; not added yet
+- [ ] Modern "How it works" section with side photo — photo ready, section not rebuilt
+- [ ] B2B offer section background — photo ready, not placed
+- [ ] Rework sections and copy for TikTok / social ad conversion (cart, offer bar, final call to action)
+- Blocker: workspace ran out of credits
