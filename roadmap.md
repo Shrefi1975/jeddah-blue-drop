@@ -2,3 +2,9 @@
 - [x] Mobile polish: easier nav menu, clear order buttons
 - [x] Align external hosting output with Netlify's publish directory and select its supported adapter
 - [ ] Verify the external Netlify deployment — waiting for the user to retry in their hosting account
+- [ ] Hero: replace video with a water-delivery clip
+- [ ] Redesign colors and effects for the water-delivery brand
+- [ ] Real product photos per brand and size
+- [ ] Modern "How it works" section with expressive image
+- [ ] Expressive background for the B2B offer section
+- [ ] Rework sections and copy for TikTok / social ad conversion
