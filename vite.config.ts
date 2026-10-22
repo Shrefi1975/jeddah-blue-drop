@@ -8,7 +8,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Netlify's server output can't be loaded by the build-time prerender pass,
 // so on Netlify pages render through its server function instead.
-const isNetlifyBuild = process.env.NITRO_PRESET === "netlify" || process.env.NETLIFY === "true";
+const isNetlifyBuild =
+  process.env["NITRO_PRESET"] === "netlify" || process.env["NETLIFY"] === "true";
 
 export default defineConfig({
   // Keep external hosts' publish directory aligned with netlify.toml.
