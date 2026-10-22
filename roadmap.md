@@ -2,10 +2,5 @@
 - [x] Mobile polish: easier nav menu, clear order buttons
 - [x] Align external hosting output with Netlify's publish directory and select its supported adapter
 - [ ] Verify the external Netlify deployment — waiting for the user to retry in their hosting account
-- [x] New ocean-blue palette, heading font and motion effects (styles only)
-- [ ] Hero: water-delivery visual — AI video blocked by credits; animated photo ready but not placed on the page
-- [ ] Real product photos per brand and size — found for Mirad, Safa, Nova, Akoya, Rafa, Al Ain, Al Bayan; Tuwaiq and Asayel still missing; not added yet
-- [ ] Modern "How it works" section with side photo — photo ready, section not rebuilt
-- [ ] B2B offer section background — photo ready, not placed
-- [ ] Rework sections and copy for TikTok / social ad conversion (cart, offer bar, final call to action)
-- Blocker: workspace ran out of credits
+- [x] Redesign as a copy of bottle-to-door.lovable.app per the user's brief (hero, benefits bar, brand/size order picker with WhatsApp message, closing call to action)
+- [ ] Tuwaiq bottle photo — waiting for the user to send one (shows a water-drop placeholder for now)
