@@ -121,8 +121,8 @@ function Order() {
   const [qty, setQty] = useState(1);
   const thumbs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const brand = BRANDS[bi];
-  const item = brand.items[Math.min(si, brand.items.length - 1)];
+  const brand = BRANDS[bi] ?? BRANDS[0]!;
+  const item = brand.items[Math.min(si, brand.items.length - 1)] ?? brand.items[0]!;
   const product = { ...item, brand: brand.name };
   const total = orderTotal(product, qty);
 
