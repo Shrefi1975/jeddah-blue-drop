@@ -1,24 +1,31 @@
-export type Product = { brand: string; size: string; pack: string; price: number; img?: string | undefined };
-export type CartLine = { product: Product; qty: number };
+export type Product = { brand: string; size: string; pack: string; price: number };
 
 export const PHONE = "966560757063";
 export const wa = (msg: string) => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-export const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1)) + " ﷼";
-export const keyOf = (p: Product) => `${p.brand}|${p.size}|${p.pack}`;
 
-export const cartTotal = (lines: CartLine[]) => lines.reduce((s, l) => s + l.product.price * l.qty, 0);
-export const cartCount = (lines: CartLine[]) => lines.reduce((s, l) => s + l.qty, 0);
+/** Message for the general "talk to us" WhatsApp buttons. */
+export const GENERAL_MSG = "مرحباً، أبغى أطلب مياه.";
 
-/** One WhatsApp message listing every cart line, the grand total and (when known) the ad source. */
-export function orderMessage(lines: CartLine[], source?: string) {
-  const rows = lines.map(
-    (l, i) => `${i + 1}) ${l.product.brand} ${l.product.size} (${l.product.pack}) × ${l.qty} = ${fmt(l.product.price * l.qty)}`,
-  );
+const arDigits = new Intl.NumberFormat("ar-SA-u-nu-arab", { maximumFractionDigits: 1 });
+/** Price shown on the page, in Arabic digits: "١٠ ر.س". */
+export const sar = (n: number) => `${arDigits.format(n)} ر.س`;
+/** Price written inside the WhatsApp message, in Western digits: "10 ر.س". */
+const sarPlain = (n: number) => `${Number.isInteger(n) ? n : n.toFixed(1)} ر.س`;
+
+/** "330مل — 40 حبة"; skips the pack when the size already says it (e.g. "330مل شرنك"). */
+export const sizeLabel = (p: Pick<Product, "size" | "pack">) =>
+  p.size.includes(p.pack) ? p.size : `${p.size} — ${p.pack}`;
+
+export const orderTotal = (p: Product, qty: number) => Math.round(p.price * qty * 10) / 10;
+
+/** Pre-filled WhatsApp order for one product and quantity. */
+export function orderMessage(p: Product, qty: number) {
   return [
-    "مرحباً جدة تاون، أرغب في طلب:",
-    ...rows,
-    `الإجمالي: ${fmt(cartTotal(lines))}`,
-    "الدفع: عند الاستلام",
-    ...(source ? [`المصدر: ${source}`] : []),
+    "مرحباً، أبغى أطلب:",
+    `الماركة: ${p.brand}`,
+    `الحجم: ${sizeLabel(p)}`,
+    `الكمية: ${qty}`,
+    `القيمة: ${sarPlain(orderTotal(p, qty))}`,
+    "أرجو تأكيد التوفر والتوصيل.",
   ].join("\n");
 }
